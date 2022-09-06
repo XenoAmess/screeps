@@ -125,7 +125,7 @@ function destroyStructureSpawn(room, structure) {
     }
     return false;
   }
-  room.log(`Spawn [${structure.pos.x}, ${structure.pos.y}] is misplaced, not in positions (prototype_room_basebuilder.destroyStructure)`); // eslint-disable-line max-len
+  room.log(`Spawn [${structure.pos.x}, ${structure.pos.y}] is misplaced, not in positions (prototype_room_basebuilder.destroyStructure), spawnsCount be ${spawnsCount}`); // eslint-disable-line max-len
   room.memory.misplacedSpawn = spawnsCount > config.structureSpawn.leastStructureSpawnToDestroyStructureSpawn;
 
   room.buildRampartsAroundSpawns();
