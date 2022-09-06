@@ -134,12 +134,6 @@ Creep.repairStructure = function(creep) {
 };
 
 Creep.prototype.getEnergyFromAnyStructures = function() {
-  if (this.memory.role !== 'builder' && this.memory.role !== 'universal') {
-    return false;
-  }
-  if (!this.room.isConstructingSpawn()) {
-    return false;
-  }
   let structures = this.room.findPropertyFilter(FIND_STRUCTURES, 'structureType', [STRUCTURE_CONTROLLER, STRUCTURE_RAMPART, STRUCTURE_EXTRACTOR, STRUCTURE_OBSERVER], {
     inverse: true,
     filter: Room.structureHasEnergy,

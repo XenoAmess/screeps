@@ -457,17 +457,21 @@ Creep.prototype.getEnergy = function() {
     this.creepLog(`getEnergy.getDroppedEnergy`);
     return true;
   }
-  if (this.getEnergyFromStorage()) {
-    this.creepLog(`getEnergy.getEnergyFromStorage`);
-    return true;
-  }
-  if (this.getEnergyFromAnyStructures()) {
-    this.creepLog(`getEnergy.getEnergyFromAnyStructures`);
-    return true;
-  }
-  if (this.getEnergyFromHostileStructures()) {
-    this.creepLog(`getEnergy.getEnergyFromHostileStructures`);
-    return true;
+
+  if (['builder', 'universal', 'nextroomer'].includes(this.memory.role) && this.room.isConstructingSpawn()) {
+    if (this.getEnergyFromAnyStructures()) {
+      this.creepLog(`getEnergy.getEnergyFromAnyStructures`);
+      return true;
+    }
+  } else {
+    if (this.getEnergyFromStorage()) {
+      this.creepLog(`getEnergy.getEnergyFromStorage`);
+      return true;
+    }
+    if (this.getEnergyFromHostileStructures()) {
+      this.creepLog(`getEnergy.getEnergyFromHostileStructures`);
+      return true;
+    }
   }
 
   this.creepLog(`getEnergy.getEnergyFromSource`);
