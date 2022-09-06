@@ -339,7 +339,7 @@ global.config = {
   },
 
   structureSpawn: {
-    leastStructureSpawnToDestroyStructureSpawn: 3,
+    leastStructureSpawnToDestroyStructureSpawn: 1,
   },
 
 };
