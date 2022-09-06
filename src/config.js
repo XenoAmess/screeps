@@ -338,6 +338,10 @@ global.config = {
     enabled: false,
   },
 
+  structureSpawn: {
+    leastStructureSpawnToDestroyStructureSpawn: 3,
+  },
+
 };
 
 try {
