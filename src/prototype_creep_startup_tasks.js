@@ -133,6 +133,35 @@ Creep.repairStructure = function(creep) {
   return creep.repairStructure();
 };
 
+Creep.prototype.getEnergyFromAnyStructures = function() {
+  if (this.memory.role !== 'builder' && this.memory.role !== 'universal') {
+    return false;
+  }
+  if (!this.room.isConstructingSpawn()) {
+    return false;
+  }
+  let structures = this.room.findPropertyFilter(FIND_STRUCTURES, 'structureType', [STRUCTURE_CONTROLLER, STRUCTURE_RAMPART, STRUCTURE_EXTRACTOR, STRUCTURE_OBSERVER], {
+    inverse: true,
+    filter: Room.structureHasEnergy,
+  });
+  if (this.carry.energy || !structures.length) {
+    return false;
+  }
+  // Get energy from the structure with highest amount first
+  const getEnergy = (object) => object.energy || object.store.energy;
+  structures = _.sortBy(structures, [(object) => -getEnergy(object), (object) => object.pos.getRangeTo(this)]);
+
+  const structure = structures[0];
+  const range = this.pos.getRangeTo(structure);
+  if (range > 1) {
+    this.moveToMy(structure.pos);
+  } else {
+    const resCode = this.withdraw(structure, RESOURCE_ENERGY);
+    this.log(Game.time, 'withdraw from structure ' + resCode);
+  }
+  return true;
+};
+
 Creep.prototype.getEnergyFromHostileStructures = function() {
   let hostileStructures = this.room.findPropertyFilter(FIND_HOSTILE_STRUCTURES, 'structureType', [STRUCTURE_CONTROLLER, STRUCTURE_RAMPART, STRUCTURE_EXTRACTOR, STRUCTURE_OBSERVER], {
     inverse: true,
