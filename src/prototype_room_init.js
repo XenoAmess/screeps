@@ -380,6 +380,10 @@ Room.prototype.checkForMisplacedSpawn = function() {
     return;
   }
   const spawns = this.findMySpawns();
+  const spawnsCount = spawns.length;
+  if (spawnsCount < config.myRoom.leastSpawnsToRebuildStructureSpawn) {
+    return;
+  }
   for (const spawn of spawns) {
     if (!this.checkForSpawnPosition(spawn.pos)) {
       this.log('Setting misplacedSpawn');
