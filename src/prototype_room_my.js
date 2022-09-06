@@ -492,6 +492,16 @@ Room.prototype.isHealthy = function() {
   return true;
 };
 
+Room.prototype.isConstructingSpawn = function() {
+  if (!this.controller || !this.controller.my) {
+    return false;
+  }
+  if (this.findPropertyFilter(FIND_MY_STRUCTURES, 'structureType', [STRUCTURE_SPAWN], {}).length > 0) {
+    return false;
+  }
+  return true;
+};
+
 Room.prototype.executeRoomHandleHostiles = function() {
   const hostiles = this.findHostileAttackingCreeps();
   this.handleAttack(hostiles);
