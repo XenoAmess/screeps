@@ -129,7 +129,7 @@ global.config = {
       [RESOURCE_CATALYST]: 10,
       [RESOURCE_GHODIUM]: 15,
     },
-    resourceStats: false,
+    resourceStats: true,
     resourceStatsDivider: 10000,
   },
 
