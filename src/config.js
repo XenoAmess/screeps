@@ -339,7 +339,8 @@ global.config = {
   },
 
   structureSpawn: {
-    leastStructureSpawnToDestroyStructureSpawn: 1,
+    leastStructureSpawnToDestroyStructureSpawn: 3,
+    otherRoomCreepComeHelpBuildStructureHelperCount: 5
   },
 
 };
