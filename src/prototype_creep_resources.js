@@ -481,6 +481,7 @@ Creep.prototype.moveToAndBuildConstructionSite = function(target) {
 
   // TODO is this necessary here? Maybe because of the builder
   this.memory.routing.targetId = target.id;
+  this.memory.routing.targetRoom = target.room;
   this.moveToMy(target.pos, 3, true);
   return true;
 };
@@ -491,7 +492,28 @@ Creep.prototype.construct = function() {
     target = Game.getObjectById(this.memory.routing.targetId);
     this.creepLog('Use memory target', target);
   }
-  if (!target || target === null || !(target instanceof ConstructionSite)) {
+  let myConstructingSpawnIds = Memory.myConstructingSpawnIds;
+  for (const csId of myConstructingSpawnIds) {
+    const cs = Game.constructionSites[csId];
+    if (cs.room === this.room) {
+      target = cs;
+      break;
+    }
+  }
+  let targetIsSpawn = target && target instanceof ConstructionSite && target.structureType === STRUCTURE_SPAWN;
+  if (myConstructingSpawnIds.length !== 0 && !targetIsSpawn) {
+    for (let myConstructingSpawnId of myConstructingSpawnIds) {
+      let workers = Memory.myConstructingSpawnIdsWorkerMap[myConstructingSpawnId] || [];
+      if (workers.length >= config.structureSpawn.otherRoomCreepComeHelpBuildStructureHelperCount) {
+        continue;
+      }
+      target = Game.getObjectById(myConstructingSpawnId);
+      workers.push(this.id);
+      Memory.myConstructingSpawnIdsWorkerMap[myConstructingSpawnId] = workers;
+      break;
+    }
+  }
+  if (!target || !(target instanceof ConstructionSite)) {
     this.creepLog('No target');
     delete this.memory.routing.targetId;
     if (this.memory.role === 'nextroomer') {

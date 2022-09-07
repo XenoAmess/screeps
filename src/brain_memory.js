@@ -7,6 +7,27 @@ brain.setConstructionSites = function() {
     Memory.constructionSites = {};
   }
 
+  let myConstructingSpawnIds = [];
+  for (const csId of Object.keys(Game.constructionSites)) {
+    const cs = Game.constructionSites[csId];
+    if (cs.my && cs.structureType === STRUCTURE_SPAWN && cs.room && cs.room.controller && cs.room.controller.my) {
+      myConstructingSpawnIds.push(csId);
+    }
+  }
+  Memory.myConstructingSpawnIds = myConstructingSpawnIds;
+  Memory.myConstructingSpawnIdsWorkerMap = Memory.myConstructingSpawnIdsWorkerMap || {};
+  for (const myConstructingSpawnId of Object.keys(Memory.myConstructingSpawnIdsWorkerMap)) {
+    let workers = Memory.myConstructingSpawnIdsWorkerMap[myConstructingSpawnId];
+    let newWorkers = [];
+    for (let workerId of workers) {
+      let worker = Game.getObjectById(workerId);
+      if (worker && worker.memory && worker.memory.routing && worker.memory.routing.targetId === myConstructingSpawnId) {
+        newWorkers.push(workerId);
+      }
+    }
+    Memory.myConstructingSpawnIdsWorkerMap[myConstructingSpawnId] = newWorkers;
+  }
+
   if (Game.time % config.constructionSite.maxIdleTime === 0) {
     const constructionSites = {};
     for (const csId of Object.keys(Game.constructionSites)) {
