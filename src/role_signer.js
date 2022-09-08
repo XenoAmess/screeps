@@ -21,7 +21,7 @@ roles.signer.action = function(creep) {
     //   creep.memory.routing = creep.memory.nextTarget.routing;
     //   creep.memory.nextTarget = creep.memory.nextTarget.nextTarget;
     // } else {
-    creep.memory.role = 'scout';
+    Creep.recycleCreep(creep);
     // }
     return true;
   } else {
