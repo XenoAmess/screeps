@@ -14,6 +14,31 @@ brain.setConstructionSites = function() {
       myConstructingSpawnIds.push(csId);
     }
   }
+  myConstructingSpawnIds.sort((a, b) => {
+    let ca = Game.constructionSites[a].room.controller;
+    let cb = Game.constructionSites[b].room.controller;
+    if (ca === cb) {
+      return 0;
+    }
+    if (!ca) {
+      return 1;
+    }
+    if (!cb) {
+      return -1;
+    }
+    if (ca.my !== cb.my) {
+      if (ca.my) {
+        return -1;
+      }
+      if (cb.my) {
+        return -1;
+      }
+    }
+    if (ca.level !== cb.level) {
+      return ca.level > cb.level ? -1 : 1;
+    }
+    return 0;
+  });
   Memory.myConstructingSpawnIds = myConstructingSpawnIds;
   Memory.myConstructingSpawnIdsWorkerMap = Memory.myConstructingSpawnIdsWorkerMap || {};
   for (const myConstructingSpawnId of Object.keys(Memory.myConstructingSpawnIdsWorkerMap)) {
