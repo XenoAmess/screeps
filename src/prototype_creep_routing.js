@@ -203,7 +203,10 @@ Creep.prototype.followPathWithTargetId = function(path) {
   return false;
 };
 
-
+/**
+ * @param {RoomPosition[]} path
+ * @returns {RoomPosition}
+ */
 Creep.prototype.getMoveBackToPathPosition = function(path) {
   if (this.memory.routing.reverse) {
     const pos = new RoomPosition(path[0].x, path[0].y, path[0].roomName);
@@ -248,14 +251,14 @@ function validateDirections(directions) {
 /**
  * moveByPathMyNoPathPosition
  *
- * @param {object} room
+ * @param {Creep} creep
  * @param {array} path
  * @return {void}
  */
-function moveByPathMyNoPathPosition(room, path) {
-  const moveBackToPathResult = room.moveBackToPath(path);
+function moveByPathMyNoPathPosition(creep, path) {
+  const moveBackToPathResult = creep.moveBackToPath(path);
   if (!moveBackToPathResult) {
-    room.log('prototype_creep_routing.moveByPathMy - moveBackToPath');
+    creep.log('prototype_creep_routing.moveByPathMy - moveBackToPath');
   }
   return moveBackToPathResult;
 }

@@ -173,8 +173,8 @@ function getWayFound(targets, posLastObject) {
 /**
  * layerFinished
  *
- * @param {object} room
- * @return {bool}
+ * @param {Room} room
+ * @return {boolean}
  */
 function layerFinished(room) {
   room.memory.walls.exit_i = 0;

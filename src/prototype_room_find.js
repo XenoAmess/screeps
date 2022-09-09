@@ -114,12 +114,22 @@ Room.prototype.findDefenseStructures = function() {
   });
 };
 
+/**
+ * find power banks
+ *
+ * @returns {StructurePowerBank[]}
+ */
 Room.prototype.findPowerBanks = function() {
   return this.find(FIND_STRUCTURES, {
     filter: {structureType: STRUCTURE_POWER_BANK},
   });
 };
 
+/**
+ * find destructible structures
+ *
+ * @returns {Structure[]}
+ */
 Room.prototype.findDestructibleStructures = function() {
   return this.find(FIND_STRUCTURES, {
     filter: (structure) => {
@@ -128,10 +138,20 @@ Room.prototype.findDestructibleStructures = function() {
   });
 };
 
+/**
+ * find towers
+ *
+ * @returns {StructureTower[]}
+ */
 Room.prototype.findTowers = function() {
   return this.find(FIND_STRUCTURES, {filter: {structureType: STRUCTURE_TOWER}});
 };
 
+/**
+ * find labs
+ *
+ * @returns {StructureLab[]}
+ */
 Room.prototype.findLabs = function() {
   return this.find(FIND_STRUCTURES, {filter: {structureType: STRUCTURE_LAB}});
 };

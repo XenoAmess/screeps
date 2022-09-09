@@ -93,7 +93,7 @@ Room.prototype.handleTowerWithEnemies = function(hostileCreeps, towers) {
 /**
  * letTowersRepairStructures
  *
- * @param {object} room
+ * @param {Room} room
  * @param {array} towers
  */
 function letTowersRepairStructures(room, towers) {
