@@ -56,7 +56,7 @@ Room.prototype.spawnCheckForCreate = function() {
 /**
   * isCreepValid - Checks for the basic structurer
   *
-  * @param {object} creep - The memory of a creep
+  * @param {Creep} creep - The memory of a creep
   * @return {boolean} - If the creep is valid
   **/
 function isCreepValid(creep) {
@@ -278,7 +278,7 @@ function isSettingAnObject(setting) {
  * Room.prototype.getSettings use for return creep spawn settings
  * adapted to room configuration
  *
- * @param {Object} creep queue's creep spawn basic data
+ * @param {Creep} creep queue's creep spawn basic data
  * @return {object}
  */
 Room.prototype.getSettings = function(creep) {

@@ -15,7 +15,7 @@ Object.defineProperty(Creep.prototype, 'data', {
 /**
  * getLink - Gets the link from heap data, or sets if missing
  *
- * @param {object} creep - The creep
+ * @param {Creep} creep - The creep
  * @return {object} - The link
  **/
 Creep.prototype.getCloseByLink = function() {

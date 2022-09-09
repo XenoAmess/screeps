@@ -42,7 +42,7 @@ roles.reserver.updateSettings = function(room, creep) {
 /**
  * callCleaner
  *
- * @param {object} creep
+ * @param {Creep} creep
  * @return {bool}
  */
 function callCleaner(creep) {
@@ -66,7 +66,7 @@ function callCleaner(creep) {
 /**
  * callStructurer
  *
- * @param {object} creep
+ * @param {Creep} creep
  */
 function callStructurer(creep) {
   if (creep.room.isMy()) {
@@ -83,7 +83,7 @@ function callStructurer(creep) {
 /**
  * interactWithControllerSuccess
  *
- * @param {object} creep
+ * @param {Creep} creep
  */
 function interactWithControllerSuccess(creep) {
   if (creep.room.controller.reservation) {
@@ -99,7 +99,7 @@ function interactWithControllerSuccess(creep) {
 /**
  * interactWithController
  *
- * @param {object} creep
+ * @param {Creep} creep
  * @return {bool}
  */
 function interactWithController(creep) {
@@ -131,7 +131,7 @@ function interactWithController(creep) {
 /**
  * callDefender
  *
- * @param {object} creep
+ * @param {Creep} creep
  */
 function callDefender(creep) {
   const hostiles = creep.room.findEnemies();

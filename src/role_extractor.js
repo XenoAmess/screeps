@@ -25,7 +25,7 @@ roles.extractor.preMove = function(creep, directions) {
 /**
  * getMineral - Gets the mineral from heap data, or sets if missing
  *
- * @param {object} creep - The creep
+ * @param {Creep} creep - The creep
  * @return {object} - The tower
  **/
 function getMineral(creep) {

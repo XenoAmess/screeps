@@ -74,7 +74,7 @@ roles.sourcer.preMove = function(creep, directions) {
 /**
  * getSource - Gets the source from heap data, or sets if missing
  *
- * @param {object} creep - The creep
+ * @param {Creep} creep - The creep
  * @return {object} - The tower
  **/
 function getSource(creep) {
@@ -88,7 +88,7 @@ function getSource(creep) {
 /**
  * harvest
  *
- * @param {object} creep
+ * @param {Creep} creep
  * @return {bool}
  */
 function harvest(creep) {
@@ -125,7 +125,7 @@ function harvest(creep) {
 /**
  * transferToLink
  *
- * @param {object} creep
+ * @param {Creep} creep
  */
 function transferToLink(creep) {
   const link = creep.getCloseByLink();
@@ -137,7 +137,7 @@ function transferToLink(creep) {
 /**
  * getContainer - Gets the container from heap data, or sets if missing
  *
- * @param {object} creep - The creep
+ * @param {Creep} creep - The creep
  * @return {object} - The container
  **/
 function getContainer(creep) {
@@ -154,7 +154,7 @@ function getContainer(creep) {
 /**
  * getContainerConstructionSite - Gets the container construction site from heap data, or sets if missing
  *
- * @param {object} creep - The creep
+ * @param {Creep} creep - The creep
  * @return {object} - The container
  **/
 function getContainerConstructionSite(creep) {
@@ -171,7 +171,7 @@ function getContainerConstructionSite(creep) {
 /**
  * maintainContainer
  *
- * @param {object} creep
+ * @param {Creep} creep
  * @return {bool}
  */
 function maintainContainer(creep) {

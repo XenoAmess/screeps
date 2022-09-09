@@ -47,7 +47,7 @@ roles.carry.updateSettings = function(room, creep) {
 /**
  * checkHelperEmptyStorage
  *
- * @param {object} creep
+ * @param {Creep} creep
  * @return {void}
  */
 function checkHelperEmptyStorage(creep) {
@@ -72,7 +72,7 @@ function checkHelperEmptyStorage(creep) {
 /**
  * checkForUniversalSpawn
  *
- * @param {object} creep
+ * @param {Creep} creep
  */
 function checkForUniversalSpawn(creep) {
   const storage = creep.room.storage;
@@ -169,7 +169,7 @@ const checkCreepForTransfer = function(otherCreep, thisCreep) {
 /**
  * transferToCreep
  *
- * @param {object} creep
+ * @param {Creep} creep
  * @param {object} direction
  * @return {bool}
  */
@@ -197,7 +197,7 @@ function transferToCreep(creep, direction) {
 /**
  * transferToCreeps
  *
- * @param {object} creep
+ * @param {Creep} creep
  * @param {object} directions
  */
 function transferToCreeps(creep, directions) {
@@ -209,7 +209,7 @@ function transferToCreeps(creep, directions) {
 /**
  * getMoveToStorage
  *
- * @param {object} creep
+ * @param {Creep} creep
  * @return {bool}
  */
 function getMoveToStorage(creep) {
@@ -222,7 +222,7 @@ function getMoveToStorage(creep) {
 /**
  * findCreepWhichCanTransfer
  *
- * @param {object} creep
+ * @param {Creep} creep
  * @param {object} adjacentPos
  * @return {bool}
  */
@@ -250,7 +250,7 @@ function findCreepWhichCanTransfer(creep, adjacentPos) {
 /**
  * checkForTransfer
  *
- * @param {object} creep
+ * @param {Creep} creep
  * @param {object} direction
  * @return {bool}
  */
@@ -276,7 +276,7 @@ function checkForTransfer(creep, direction) {
 /**
  * preMoveNotMoveToStorage
  *
- * @param {object} creep
+ * @param {Creep} creep
  * @param {object} directions
  * @return {bool}
  */

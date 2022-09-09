@@ -61,7 +61,7 @@ const universalBeforeStorage = function(creep) {
 /**
  * pickupResourcesInRange
  *
- * @param {object} creep
+ * @param {Creep} creep
  */
 function pickupResourcesInRange(creep) {
   const resources = creep.pos.findInRange(FIND_DROPPED_RESOURCES, 1);
@@ -73,7 +73,7 @@ function pickupResourcesInRange(creep) {
 /**
  * handlePathEnd
  *
- * @param {object} creep
+ * @param {Creep} creep
  */
 function handlePathEnd(creep) {
   if (creep.room.memory.position.pathEndLevel) {
@@ -88,7 +88,7 @@ function handlePathEnd(creep) {
 /**
  * handlePathStart
  *
- * @param {object} creep
+ * @param {Creep} creep
  * @param {bool} reverse
  * @return {bool}
  */

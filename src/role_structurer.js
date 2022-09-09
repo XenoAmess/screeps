@@ -20,7 +20,7 @@ roles.structurer.settings = {
 /**
  * dismantleStructure - Dismantles structures in moving direction
  *
- * @param {object} creep - The creep object
+ * @param {Creep} creep - The creep object
  * @param {object} structure - The structure to check and dismantle
  * @return {boolean} - Dismantling
  **/
@@ -41,7 +41,7 @@ function dismantleStructure(creep, structure) {
 /**
  * findAndDismantleStructure - Finds and dismantles structures
  *
- * @param {object} creep - The creep object
+ * @param {Creep} creep - The creep object
  * @param {object} directions - The directions object
  * @return {void}
  **/
@@ -62,7 +62,7 @@ function findAndDismantleStructure(creep, directions) {
 /**
  * preMoveTargetRoom - preMove in targetRoom
  *
- * @param {object} creep - The creep object
+ * @param {Creep} creep - The creep object
  * @param {object} directions - The directions object
  * @return {void}
  **/

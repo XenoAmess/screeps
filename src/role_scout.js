@@ -14,7 +14,7 @@ roles.scout.settings = {
 /**
  * move - moves the creep to the nextRoom
  *
- * @param {object} creep
+ * @param {Creep} creep
  */
 function move(creep) {
   const targetPosObject = new RoomPosition(25, 25, creep.data.nextRoom);
@@ -33,7 +33,7 @@ function move(creep) {
 /**
  * getNextRoom
  *
- * @param {object} creep
+ * @param {Creep} creep
  * @return {string}
  */
 function getNextRoom(creep) {
@@ -55,7 +55,7 @@ function getNextRoom(creep) {
 /**
  * explore - follow the unseen or latest `lastSeen` rooms
  *
- * @param {object} creep
+ * @param {Creep} creep
  */
 function explore(creep) {
   if (!creep.data.nextRoom) {

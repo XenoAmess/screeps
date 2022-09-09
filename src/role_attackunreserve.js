@@ -59,7 +59,7 @@ function getFilterForBodyPart(bodyPart) {
 /**
  * attach - attacks the target
  *
- * @param {object} creep - The attacker
+ * @param {Creep} creep - The attacker
  * @param {object} target - The target
  * @return {bool} - Returns true :-)
  **/

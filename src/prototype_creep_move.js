@@ -143,7 +143,7 @@ const getCreepsAtPosition = function(position, creep) {
  * moveUniversalAsSourcerReserver
  *
  * @param {string} role
- * @param {object} creep
+ * @param {Creep} creep
  * @param {int} direction
  * @return {bool}
  */
@@ -158,7 +158,7 @@ function moveUniversalAsSourcerReserver(role, creep, direction) {
  * moveUniversalOrCarryAsDefendMelee
  *
  * @param {string} role
- * @param {object} creep
+ * @param {Creep} creep
  * @param {int} direction
  * @return {boolean}
  */

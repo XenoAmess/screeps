@@ -18,7 +18,7 @@ roles.storagefiller.settings = {
 
 /**
  * transferFromLink
- * @param {object} creep
+ * @param {Creep} creep
  * @return {bool}
  */
 function transferFromLink(creep) {
@@ -43,7 +43,7 @@ function transferFromLink(creep) {
 /**
  * getTower - Gets the tower from heap data, or sets if missing
  *
- * @param {object} creep - The creep
+ * @param {Creep} creep - The creep
  * @return {object} - The tower
  **/
 function getTower(creep) {
@@ -60,7 +60,7 @@ function getTower(creep) {
 /**
  * getPowerSpawn - Gets the powerSpawn from heap data, or sets if missing
  *
- * @param {object} creep - The creep
+ * @param {Creep} creep - The creep
  * @return {object} - The powerSpawn
  **/
 function getPowerSpawn(creep) {
