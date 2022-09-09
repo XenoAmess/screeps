@@ -1,24 +1,24 @@
 /**
  * findRoomsWithinReach - finds rooms within reach for nextRooms
  *
- * @param {object} room - The room to search for
- * @return {list} - A list of room names
+ * @param {string} roomName - The room to search for
+ * @return {string[]} - A list of room names
  **/
-function findRoomsWithinReach(room) {
-  const rooms = [];
-  for (const myRoom of Memory.myRooms) {
+function findRoomsWithinReach(roomName) {
+  const roomNames = [];
+  for (const myRoomName of Memory.myRooms) {
     try {
-      const distance = Game.map.getRoomLinearDistance(room, myRoom);
+      const distance = Game.map.getRoomLinearDistance(roomName, myRoomName);
       // console.log(`roomWithinReach room: ${room} myRoom: ${myRoom} distance: ${distance}`);
       if (distance < config.nextRoom.maxDistance) {
-        rooms.push(myRoom);
+        roomNames.push(myRoomName);
       }
     } catch (e) {
-      console.log(`Exception: helper_findMyRooms.findRoomsWithinReach ${e} ${room} ${myRoom}`);
+      console.log(`Exception: helper_findMyRooms.findRoomsWithinReach ${e} ${roomName} ${myRoomName}`);
       continue;
     }
   }
-  return rooms;
+  return roomNames;
 }
 module.exports.findRoomsWithinReach = findRoomsWithinReach;
 
