@@ -199,7 +199,7 @@ module.exports.initPlayer = initPlayer;
  * addRoomToPlayer
  *
  * @param {object} player
- * @param {object} room
+ * @param {Room} room
  */
 function addRoomToPlayer(player, room) {
   if (!player.rooms) {

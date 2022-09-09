@@ -30,8 +30,8 @@ roles.upgrader.settings = {
  * 6453 energy in storage are 2 workParts
  * 3000 energy will be put in the controller
  *
- * @param {object} room
- * @return {bool}
+ * @param {Room} room
+ * @return {object}
  */
 roles.upgrader.updateSettings = function(room) {
   if (!room.storage) {

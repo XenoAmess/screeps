@@ -1,7 +1,7 @@
 /**
  * printRoomCostMatrix - prints the room.data.costMatrix
  *
- * @param {object} room
+ * @param {Room} room
  * @return {void}
  */
 function printRoomCostMatrix(room) {
