@@ -27,3 +27,11 @@ server/
 account_local.screeps.com.js
 current-world/
 tmp-test-server-database/
+
+## no ts
+tsconfig.json
+src_ts/
+
+## ide
+.idea/
+**/*.iml
