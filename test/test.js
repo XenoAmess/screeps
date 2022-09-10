@@ -14,7 +14,8 @@ global.Room = function(name, energyAvailable) {
     level: 1,
   };
 };
-global.RoomObject = function() {};
+global.RoomObject = function() {
+};
 global.RoomPosition = function(x, y, roomName) {
   this.x = x;
   this.y = y;
@@ -23,20 +24,25 @@ global.RoomPosition = function(x, y, roomName) {
 global.Creep = function(role) {
   this.role = role;
 };
-global.Structure = function() {};
-global.StructureController = function() {};
-global.StructureStorage = function() {};
+global.Structure = function() {
+};
+global.StructureController = function() {
+};
+global.StructureStorage = function() {
+};
 global._ = require('lodash');
 global.Game = new function() {
   this.time = 1;
   this.cpu = {
-    getUsed: () => {},
+    getUsed: () => {
+    },
   };
   this.gcl = {
     level: 10
   }
 };
-global.Memory = new function() {};
+global.Memory = new function() {
+};
 
 require('../src/main');
 
@@ -74,7 +80,10 @@ describe('Room', () => {
         misplacedSpawn: false,
       },
     };
-    assert.equal(true, room.isSameCreep({role: 'universal', routing: {}}, {role: 'universal', routing: {targetId: 'targetId'}}));
+    assert.equal(true, room.isSameCreep({role: 'universal', routing: {}}, {
+      role: 'universal',
+      routing: {targetId: 'targetId'}
+    }));
   });
 
   it('getCreepConfig attackunreserve has heal', () => {
