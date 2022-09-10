@@ -111,9 +111,16 @@ global.utils = {
     return found;
   },
 
+  /**
+   * from string format of creep parts String (tooAngel config format) to creep parts array (screeps format)
+   *
+   * @param {string} stringParts creep parts String
+   * @return {string[]} creep parts array
+   */
   stringToParts: function(stringParts) {
+    const arrayParts = [];
     if (!stringParts || typeof(stringParts) !== 'string') {
-      return;
+      return arrayParts;
     }
     const partsConversion = {
       M: MOVE,
@@ -125,9 +132,8 @@ global.utils = {
       H: HEAL,
       K: CLAIM,
     };
-    const arrayParts = [];
-    for (let i = 0; i < stringParts.length; i++) {
-      arrayParts.push(partsConversion[stringParts.charAt(i)]);
+    for (const partChar of stringParts) {
+      arrayParts.push(partsConversion[partChar]);
     }
     return arrayParts;
   },

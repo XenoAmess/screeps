@@ -120,67 +120,67 @@ describe('Room', () => {
     const creep = new Creep('upgrader');
     let config = room.getCreepConfig(creep);
     assert.equal(config.opts.memory.role, 'upgrader');
-    assert.deepEqual(config.body, ['move', 'carry', 'work']);
+    assert.deepEqual(config.body, ['carry', 'work', 'move']);
 
     room.storage.store.energy = 6000;
     config = room.getCreepConfig(creep);
-    assert.deepEqual(config.body, ['move', 'carry', 'work', 'work']);
+    assert.deepEqual(config.body, ['work', 'carry', 'work', 'move']);
 
     room.storage.store.energy = 9000;
     config = room.getCreepConfig(creep);
-    assert.deepEqual(config.body, ['move', 'carry', 'work', 'work', 'work']);
+    assert.deepEqual(config.body, ['work', 'work', 'carry', 'work', 'move']);
 
     room.storage.store.energy = 12000;
     config = room.getCreepConfig(creep);
-    assert.deepEqual(config.body, ['move', 'carry', 'work', 'work', 'work', 'work']);
+    assert.deepEqual(config.body, ['work', 'work', 'work', 'carry', 'work', 'move' ]);
 
     room.storage.store.energy = 15000;
     config = room.getCreepConfig(creep);
-    assert.deepEqual(config.body, ['move', 'carry', 'work', 'work', 'work', 'work', 'work']);
+    assert.deepEqual(config.body, ['work', 'work', 'work', 'work', 'carry', 'work', 'move' ]);
 
     room.storage.store.energy = 18000;
     config = room.getCreepConfig(creep);
-    assert.deepEqual(config.body, ['move', 'carry', 'work', 'work', 'work', 'work', 'work', 'work']);
+    assert.deepEqual(config.body, [ 'work', 'work', 'work', 'work', 'work', 'carry', 'work', 'move' ]);
 
     room.storage.store.energy = 21000;
     config = room.getCreepConfig(creep);
-    assert.deepEqual(config.body, ['move', 'carry', 'work', 'work', 'work', 'work', 'work', 'work', 'work']);
+    assert.deepEqual(config.body, ['work', 'work', 'work', 'work', 'work', 'work', 'carry', 'work', 'move' ]);
 
     room.storage.store.energy = 24000;
     config = room.getCreepConfig(creep);
-    assert.deepEqual(config.body, ['move', 'carry', 'work', 'work', 'work', 'work', 'work', 'work', 'work', 'work']);
+    assert.deepEqual(config.body, ['work', 'work', 'work', 'work', 'work', 'work', 'work', 'carry', 'work', 'move' ]);
 
     room.storage.store.energy = 27000;
     config = room.getCreepConfig(creep);
-    assert.deepEqual(config.body, ['move', 'carry', 'work', 'work', 'work', 'work', 'work', 'work', 'work', 'work', 'work']);
+    assert.deepEqual(config.body, ['work', 'work', 'work', 'work', 'work', 'work', 'work', 'work', 'carry', 'work', 'move' ]);
 
     room.storage.store.energy = 30000;
     config = room.getCreepConfig(creep);
-    assert.deepEqual(config.body, ['move', 'carry', 'work', 'work', 'work', 'work', 'work', 'work', 'work', 'work', 'work', 'work']);
+    assert.deepEqual(config.body, ['work', 'work', 'work', 'work', 'work', 'work', 'work', 'work', 'work', 'carry', 'work', 'move' ]);
 
     room.storage.store.energy = 33000;
     config = room.getCreepConfig(creep);
-    assert.deepEqual(config.body, ['move', 'carry', 'work', 'work', 'work', 'work', 'work', 'work', 'work', 'work', 'work', 'work', 'work']);
+    assert.deepEqual(config.body, ['work', 'work', 'work', 'work', 'work', 'work', 'work', 'work', 'work', 'work', 'carry', 'work', 'move' ]);
 
     room.storage.store.energy = 36000;
     config = room.getCreepConfig(creep);
-    assert.deepEqual(config.body, ['move', 'carry', 'work', 'work', 'work', 'work', 'work', 'work', 'work', 'work', 'work', 'work', 'work', 'work']);
+    assert.deepEqual(config.body, ['work', 'work', 'work', 'work', 'work', 'work', 'work', 'work', 'work', 'work', 'work', 'carry', 'work', 'move' ]);
 
     room.storage.store.energy = 39000;
     config = room.getCreepConfig(creep);
-    assert.deepEqual(config.body, ['move', 'carry', 'work', 'work', 'work', 'work', 'work', 'work', 'work', 'work', 'work', 'work', 'work', 'work', 'work']);
+    assert.deepEqual(config.body, ['work', 'work', 'work', 'work', 'work', 'work', 'work', 'work', 'work', 'work', 'work', 'work', 'carry', 'work', 'move' ]);
 
     room.storage.store.energy = 42000;
     config = room.getCreepConfig(creep);
-    assert.deepEqual(config.body, ['move', 'carry', 'work', 'work', 'work', 'work', 'work', 'work', 'work', 'work', 'work', 'work', 'work', 'work', 'work', 'work']);
+    assert.deepEqual(config.body, ['work', 'work', 'work', 'work', 'work', 'work', 'work', 'work', 'work', 'work', 'work', 'work', 'work', 'carry', 'work', 'move' ]);
 
     room.storage.store.energy = 45000;
     config = room.getCreepConfig(creep);
-    assert.deepEqual(config.body, ['move', 'carry', 'work', 'work', 'work', 'work', 'work', 'work', 'work', 'work', 'work', 'work', 'work', 'work', 'work', 'work', 'work']);
+    assert.deepEqual(config.body, ['work', 'work', 'work', 'work', 'work', 'work', 'work', 'work', 'work', 'work', 'work', 'work', 'work', 'work', 'carry', 'work', 'move' ]);
 
     room.storage.store.energy = 48000;
     config = room.getCreepConfig(creep);
-    assert.deepEqual(config.body, ['move', 'carry', 'work', 'work', 'work', 'work', 'work', 'work', 'work', 'work', 'work', 'work', 'work', 'work', 'work', 'work', 'work', 'work']);
+    assert.deepEqual(config.body, ['work', 'work', 'work', 'work', 'work', 'work', 'work', 'work', 'work', 'work', 'work', 'work', 'work', 'work', 'work', 'carry', 'work', 'move' ]);
 
     const roomLevel8 = new Room('W1N1', 5000);
     roomLevel8.storage = {
@@ -195,7 +195,7 @@ describe('Room', () => {
     roomLevel8.controller.level = 8;
     roomLevel8.storage.store.energy = 48000;
     config = roomLevel8.getCreepConfig(creep);
-    assert.deepEqual(config.body, ['move', 'carry', 'work', 'work', 'work', 'work', 'work', 'work', 'work', 'work', 'work', 'work', 'work', 'work', 'work', 'work', 'work']);
+    assert.deepEqual(config.body, ['work', 'work', 'work', 'work', 'work', 'work', 'work', 'work', 'work', 'work', 'work', 'work', 'work', 'work', 'carry', 'work', 'move' ]);
 
     const roomLowEnergy = new Room('W1N1', 500);
     roomLowEnergy.storage = {
@@ -209,6 +209,6 @@ describe('Room', () => {
     };
     roomLowEnergy.storage.store.energy = 48000;
     config = roomLowEnergy.getCreepConfig(creep);
-    assert.deepEqual(config.body, ['move', 'carry', 'work', 'work', 'work', 'work']);
+    assert.deepEqual(config.body, ['work', 'work', 'work', 'carry', 'work', 'move' ]);
   });
 });
