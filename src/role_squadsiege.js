@@ -21,17 +21,23 @@ roles.squadsiege.dismantleSurroundingStructures = function(creep, directions) {
   const posForward = creep.pos.getAdjacentPosition(directions.forwardDirection);
   const structures = posForward.lookFor(LOOK_STRUCTURES);
   for (const structure of structures) {
-    if (structure.structureType === STRUCTURE_ROAD) {
+    if (structure.my) {
       continue;
     }
-    if (structure.structureType === STRUCTURE_RAMPART && structure.my) {
+    switch (structure.structureType) {
+    case STRUCTURE_ROAD:
+    case STRUCTURE_CONTROLLER:
+    case STRUCTURE_KEEPER_LAIR:
+    case STRUCTURE_WALL:
       continue;
+    default:
+      // do nothing
     }
-
     creep.dismantle(structure);
     creep.say('dismantle');
-    break;
+    return true;
   }
+  return false;
 };
 
 roles.squadsiege.preMove = function(creep, directions) {
