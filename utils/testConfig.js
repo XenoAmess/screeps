@@ -8,7 +8,7 @@ module.exports.tickDuration = 10;
 // if your machine is slow try increment this
 module.exports.waitForConnection = 10;
 
-module.exports.playerRoom = 'W7N4';
+module.exports.playerRoom = 'W1N7';
 const players = {
   'W1N7': {x: 43, y: 35},
   'W8N8': {x: 21, y: 28},
@@ -35,8 +35,8 @@ module.exports.milestones = [
   {tick: 14800, check: {structures: 9}, required: true},
   {tick: 15300, check: {structures: 10}, required: true},
   {tick: 15700, check: {structures: 11}, required: true},
-  {tick: 30000, check: {level: 4}, required: true},
-  {tick: 30100, check: {structures: 12}, required: true},
+  {tick: 30000, check: {level: 4}, required: false},
+  {tick: 30100, check: {structures: 12}, required: false},
   {tick: 30400, check: {structures: 13}, required: false},
   {tick: 30500, check: {structures: 14}, required: false},
   {tick: 30800, check: {structures: 15}, required: false},
