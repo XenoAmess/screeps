@@ -175,7 +175,17 @@ function getContainerConstructionSite(creep) {
  */
 function maintainContainer(creep) {
   if (creep.inBase()) {
-    return false;
+    if (creep.room.isStruggling()) {
+      return false;
+    }
+    const links = creep.pos.findInRangePropertyFilter(FIND_STRUCTURES, 1, 'structureType', [STRUCTURE_LINK]);
+    if (links.length) {
+      const containerConstructionSite = getContainerConstructionSite(creep);
+      if (containerConstructionSite) {
+        containerConstructionSite.remove();
+      }
+      return false;
+    }
   }
 
   const container = getContainer(creep);
@@ -200,6 +210,10 @@ function maintainContainer(creep) {
     }
     return false;
   }
+}
+
+roles.sourcer.preMove = function(creep) {
+  creep.pickupEnergyFromGround();
 }
 
 roles.sourcer.action = function(creep) {
