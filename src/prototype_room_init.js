@@ -378,10 +378,6 @@ Room.prototype.checkForSpawnPosition = function(pos) {
  * @return {undefined}
  **/
 Room.prototype.checkForMisplacedSpawn = function() {
-  const spawnsCount = Object.keys(Game.spawns).length;
-  if (spawnsCount < config.structureSpawn.leastStructureSpawnToDestroyStructureSpawn) {
-    return;
-  }
   const spawns = this.findMySpawns();
   const spawnsCount = spawns.length;
   if (spawnsCount < config.myRoom.leastSpawnsToRebuildStructureSpawn) {
