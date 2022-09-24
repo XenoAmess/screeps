@@ -57,6 +57,8 @@ Room.prototype.spawnCheckForCreate = function() {
   creep.ttl = creep.ttl || config.creep.queueTtl;
   if (this.findSpawnsNotSpawning().length === 0) {
     creep.ttl--;
+  } else if (this.energyAvailable === this.energyCapacityAvailable) {
+    creep.ttl = 0;
   }
   return false;
 };
@@ -476,7 +478,7 @@ Room.prototype.getCreepConfig = function(creep) {
 Room.prototype.spawnCreateCreep = function(creep) {
   const spawns = this.findSpawnsNotSpawning();
   if (spawns.length === 0) {
-    return;
+    return false;
   }
 
   const config = this.getCreepConfig(creep);
