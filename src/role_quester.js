@@ -67,7 +67,7 @@ roles.quester.action = function(creep) {
   const quest = Memory.quests[creep.memory.level];
   if (!quest) {
     creep.log(`Quest ${creep.memory.level} not found, suiciding`);
-    this.memory.role = 'scout';
+    creep.memory.role = 'scout';
     return;
   }
   if (quest.quest === 'buildcs') {
